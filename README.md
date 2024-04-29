@@ -6,4 +6,16 @@ This data science project series walks through the step-by-step process of how t
 - Sklearn for model building
 - Jupyter notebook, visual studio code and pycharm as IDE
 - Python flask for HTTP server
-- HTML/CSS/Javascript for UI
+- HTML/CSS/Streamlit-python for UI
+
+```
+cd f_pipeline
+```
+
+```
+cd server
+```
+
+```
+python -m streamlit run app.py
+```
