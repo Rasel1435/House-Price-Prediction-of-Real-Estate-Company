@@ -1,11 +1,11 @@
 # Use official Python image as base
 FROM python:3.10-slim
 
-# Set working directory
-WORKDIR /code
-
 # Copy the entire project directory into the container
 COPY . /code
+
+# Set working directory
+WORKDIR /code
 
 # Copy requirements.txt and install Python dependencies
 COPY requirements.txt requirements.txt
