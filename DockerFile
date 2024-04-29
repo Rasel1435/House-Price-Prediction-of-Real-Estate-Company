@@ -1,0 +1,19 @@
+# Use official Python image as base
+FROM python:3.10-slim
+
+# Set working directory
+WORKDIR /code
+
+# Copy the entire project directory into the container
+COPY . /code
+
+# Copy requirements.txt and install Python dependencies
+COPY requirements.txt requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
+
+
+# Expose any ports the app is expecting
+EXPOSE 8080
+EXPOSE 5000
+EXPOSE 8237
+EXPOSE 8000
