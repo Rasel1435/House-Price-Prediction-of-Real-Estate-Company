@@ -3,7 +3,11 @@ from pipelines import util
 
 app = Flask(__name__)
 
-# Route for serving the app.html file
+# --- MOVE THIS HERE ---
+# Load model and locations immediately so Gunicorn sees them
+util.load_saved_artifacts() 
+# ----------------------
+
 @app.route('/')
 def app_html():
     return render_template('app.html')
@@ -31,9 +35,8 @@ def predict_home_price():
         response.headers.add('Access-Control-Allow-Origin', '*')
         return response
     except Exception as e:
-        error_message = str(e)
-        return jsonify({'error': error_message}), 400
+        return jsonify({'error': str(e)}), 400
 
 if __name__ == "__main__":
-    util.load_saved_artifacts()
+    # This only runs for local testing (python app.py)
     app.run(host='0.0.0.0', port=5000)
