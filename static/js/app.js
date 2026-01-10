@@ -1,34 +1,37 @@
 function estimatePrice() {
+  console.log("Estimate price button clicked");
   var sqft = $("#uiSqft").val();
   var bhk = $("input[name='uiBHK']:checked").val();
   var bath = $("input[name='uiBathrooms']:checked").val();
   var location = $("#uiLocations").val();
+  var resultArea = $("#uiEstimatedPrice");
 
-  $.ajax({
-    type: "POST",
-    url: "/predict_home_price",
-    data: {
-      Squareft: sqft,
+  // Show "Processing..." while waiting
+  resultArea.html("<h3>Calculating...</h3>");
+
+  $.post("/predict_home_price", {
+      Squareft: parseFloat(sqft),
       uiBHK: bhk,
       uiBathrooms: bath,
-      uiLocations: location,
-    },
-    success: function (response) {
-      $("#uiEstimatedPrice h2").text(
-        "Estimated Price: " + response.estimated_price
-      );
-    },
-    error: function (xhr, status, error) {
-      console.error("Error:", error);
-    },
+      uiLocations: location
+  }, function(data, status) {
+      console.log(data.estimated_price);
+      // Update result with the actual value
+      resultArea.html("<h3>Estimated Price: ₹ " + data.estimated_price + " Lakh</h3>");
+  }).fail(function() {
+      resultArea.html("<h3 style='color:red;'>Error: Could not calculate price</h3>");
   });
 }
 
 $(document).ready(function () {
-  // Fetch location names and populate dropdown
+  console.log("Document ready");
   $.get("/get_location_names", function (data) {
-    data.locations.forEach(function (location) {
-      $("#uiLocations").append("<option>" + location + "</option>");
-    });
+    if(data && data.locations) {
+      var uiLocations = $("#uiLocations");
+      // uiLocations.empty(); // Optional: clears existing
+      data.locations.forEach(function (location) {
+        uiLocations.append(new Option(location, location));
+      });
+    }
   });
 });
