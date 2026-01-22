@@ -8,34 +8,59 @@ blinker==1.9.0
     # via flask
 click==8.3.1
     # via flask
+contourpy==1.3.3
+    # via matplotlib
+cycler==0.12.1
+    # via matplotlib
 dill==0.4.1
     # via house-price-prediction (pyproject.toml)
 flask==3.1.2
     # via house-price-prediction (pyproject.toml)
+fonttools==4.61.1
+    # via matplotlib
 itsdangerous==2.2.0
     # via flask
 jinja2==3.1.6
     # via flask
 joblib==1.5.3
     # via scikit-learn
+kiwisolver==1.4.9
+    # via matplotlib
 markupsafe==3.0.3
     # via
     #   flask
     #   jinja2
     #   werkzeug
-numpy==2.4.1
+matplotlib==3.10.8
     # via
     #   house-price-prediction (pyproject.toml)
+    #   seaborn
+numpy==2.4.1
+    # via
+    #   contourpy
+    #   house-price-prediction (pyproject.toml)
+    #   matplotlib
     #   pandas
     #   scikit-learn
     #   scipy
+    #   seaborn
     #   xgboost
 nvidia-nccl-cu12==2.29.2
     # via xgboost
+packaging==26.0
+    # via matplotlib
 pandas==3.0.0
-    # via house-price-prediction (pyproject.toml)
+    # via
+    #   house-price-prediction (pyproject.toml)
+    #   seaborn
+pillow==12.1.0
+    # via matplotlib
+pyparsing==3.3.2
+    # via matplotlib
 python-dateutil==2.9.0.post0
-    # via pandas
+    # via
+    #   matplotlib
+    #   pandas
 python-dotenv==1.2.1
     # via house-price-prediction (pyproject.toml)
 scikit-learn==1.8.0
@@ -44,6 +69,8 @@ scipy==1.17.0
     # via
     #   scikit-learn
     #   xgboost
+seaborn==0.13.2
+    # via house-price-prediction (pyproject.toml)
 six==1.17.0
     # via python-dateutil
 threadpoolctl==3.6.0

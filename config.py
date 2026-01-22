@@ -1,5 +1,5 @@
 # DATA_SOURCE = 'online'
-DATA_SOURCE = '../data/Bengaluru_House_Data.csv'
+DATA_SOURCE = 'data/Bengaluru_House_Data.csv'
 PROCESSED_DATA_PATH = '../data/Final_Pipelines_Data.csv'
 FEATURE_GROUP_NAME = 'house_price_prediction'
 FEATURE_GROUP_DESCRIPTION = "Real Estate House Price Prediction"

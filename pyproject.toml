@@ -20,7 +20,9 @@ dependencies = [
     "xgboost",
     "flask",
     "dill",
-    "python-dotenv"
+    "python-dotenv",
+    "seaborn",
+    "matplotlib"
 ]
 
 classifiers = [
