@@ -1,7 +1,15 @@
+# Environments
 venv/
-*.pyc
-__pycache__/
-artifacts/
-data/
-*.egg-info/
 .env
+
+# Python internals
+__pycache__/
+*.pyc
+*.egg-info/
+
+# Project Specific
+data/
+logs/
+
+# Notebooks (Optional: keep the notebook but ignore the checkpoints)
+.ipynb_checkpoints/
