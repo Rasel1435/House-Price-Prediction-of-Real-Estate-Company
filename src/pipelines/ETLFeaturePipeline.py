@@ -3,11 +3,11 @@ import sys
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from config import DATA_SOURCE
-from zenml import step, pipeline
-from steps.a_load import load_data_from_csv
-from steps.b_clean import clean_data
-from steps.c_feature_engineering import FeatureEngineering
-from steps.d_removing_outlier import remove_outliers
+from zenml import components, pipeline
+from components.a_load import load_data_from_csv
+from components.b_clean import clean_data
+from components.c_feature_engineering import FeatureEngineering
+from components.d_removing_outlier import remove_outliers
 from error_logs import configure_logger
 # Configure logger
 logger = configure_logger()
