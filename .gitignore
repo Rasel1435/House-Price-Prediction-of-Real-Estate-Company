@@ -9,6 +9,8 @@ __pycache__/
 
 # Project Specific
 data/
+artifacts/
+results/
 logs/
 
 # Notebooks (Optional: keep the notebook but ignore the checkpoints)
