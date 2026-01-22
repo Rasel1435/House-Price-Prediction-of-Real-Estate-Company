@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "house-price-prediction"
+version = "0.1.0"
+description = "An end-to-end ML project for real estate price prediction"
+readme = "README.md"
+requires-python = ">=3.9"
+authors = [
+  { name="Sheikh Rasel Ahmed", email="sheikhraselahmed19@gmail.com" },
+]
+
+# List your main libraries here for pip-compile to read
+dependencies = [
+    "pandas",
+    "numpy",
+    "scikit-learn",
+    "xgboost",
+    "flask",
+    "dill",
+    "python-dotenv"
+]
+
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Operating System :: OS Independent",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/Rasel1435/House-Price-Prediction-of-Real-Estate-Company"
+
+[tool.setuptools.packages.find]
+# This is the standard way if your code starts directly in src/
+where = ["."]
+include = ["src*"]
