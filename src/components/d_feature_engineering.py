@@ -40,7 +40,7 @@ def perform_feature_engineering(df: pd.DataFrame) -> pd.DataFrame:
         df = df.copy()
 
         # Clean up location names by stripping extra spaces
-        df['location'] = df['location'].apply(lambda x: x.strip())
+        df['location'] = df['location'].apply(lambda x: x.strip().lower())
 
         # Identify locations with <= 10 data points
         location_counts = df.groupby(

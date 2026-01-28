@@ -1,42 +1,48 @@
-from flask import Flask, request, jsonify, render_template
-from pipelines import util
+import os
+from fastapi import FastAPI, Request
+from fastapi.responses import HTMLResponse
+from fastapi.staticfiles import StaticFiles
+from fastapi.templating import Jinja2Templates
+from fastapi.middleware.cors import CORSMiddleware
+from pydantic import BaseModel
+from src.utils.predictor import HousePricePredictor
 
-app = Flask(__name__)
+app = FastAPI(title="LuxEstate Predictor")
 
-# --- MOVE THIS HERE ---
-# Load model and locations immediately so Gunicorn sees them
-util.load_saved_artifacts() 
-# ----------------------
+# Setup for Frontend
+app.mount("/static", StaticFiles(directory="static"), name="static")
+templates = Jinja2Templates(directory="templates")
 
-@app.route('/')
-def app_html():
-    return render_template('app.html')
+# Predictor Instance
+predictor = HousePricePredictor()
 
-@app.route('/get_location_names', methods=['GET'])
-def get_location_names():
-    response = jsonify({
-        'locations': util.get_location_names()
-    })
-    response.headers.add('Access-Control-Allow-Origin', '*')
-    return response
+# CORS for local testing
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
-@app.route('/predict_home_price', methods=['POST'])
-def predict_home_price():
-    try:
-        total_sqft = float(request.form['Squareft'])
-        location = request.form['uiLocations']
-        bhk = int(request.form['uiBHK'])
-        bath = int(request.form['uiBathrooms'])
+class HouseInput(BaseModel):
+    location: str
+    total_sqft: float
+    bath: int
+    bhk: int
 
-        estimated_price = util.get_estimated_price(location, total_sqft, bhk, bath)
-        response = jsonify({
-            'estimated_price': estimated_price
-        })
-        response.headers.add('Access-Control-Allow-Origin', '*')
-        return response
-    except Exception as e:
-        return jsonify({'error': str(e)}), 400
+@app.get("/", response_class=HTMLResponse)
+async def index(request: Request):
+    return templates.TemplateResponse("app.html", {"request": request})
+
+@app.get("/get_location_names")
+async def get_locations():
+    return {"locations": predictor.columns[3:]}
+
+@app.post("/predict")
+async def predict(data: HouseInput):
+    prediction = predictor.predict_price(data.location, data.total_sqft, data.bath, data.bhk)
+    return {"estimated_price": prediction}
 
 if __name__ == "__main__":
-    # This only runs for local testing (python app.py)
-    app.run(host='0.0.0.0', port=5000)
+    import uvicorn
+    uvicorn.run(app, host="127.0.0.1", port=8000)
