@@ -7,6 +7,7 @@ from components.a_load import ingest_data
 from components.b_cleaning import cleaning_data
 from components.c_feature_selection import select_features
 from components.d_feature_engineering import perform_feature_engineering
+from components.e_model import ModelTrainer
 from src.logger import configure_logger
 from src.exception import CustomException
 # Configure logger
@@ -19,6 +20,8 @@ def run_pipeline():
         cleaning_df = cleaning_data(loading_df)
         feature_selection_df = select_features(cleaning_df)
         feature_engineering_df = perform_feature_engineering(feature_selection_df)
+        best_model_score = ModelTrainer().initiate_model_trainer(feature_engineering_df)
+        logger.info(f"==> Best Model Score from training: {best_model_score}")
 
         logger.info("==> Pipeline process has been done successfully!")
         return feature_engineering_df
