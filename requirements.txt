@@ -4,20 +4,34 @@
 #
 #    pip-compile --output-file=requirements.txt pyproject.toml
 #
+annotated-doc==0.0.4
+    # via fastapi
+annotated-types==0.7.0
+    # via pydantic
+anyio==4.12.1
+    # via starlette
 blinker==1.9.0
     # via flask
 click==8.3.1
-    # via flask
+    # via
+    #   flask
+    #   uvicorn
 contourpy==1.3.3
     # via matplotlib
 cycler==0.12.1
     # via matplotlib
 dill==0.4.1
     # via house-price-prediction (pyproject.toml)
+fastapi==0.128.0
+    # via house-price-prediction (pyproject.toml)
 flask==3.1.2
     # via house-price-prediction (pyproject.toml)
 fonttools==4.61.1
     # via matplotlib
+h11==0.16.0
+    # via uvicorn
+idna==3.11
+    # via anyio
 itsdangerous==2.2.0
     # via flask
 jinja2==3.1.6
@@ -55,6 +69,12 @@ pandas==3.0.0
     #   seaborn
 pillow==12.1.0
     # via matplotlib
+pydantic==2.12.5
+    # via
+    #   fastapi
+    #   house-price-prediction (pyproject.toml)
+pydantic-core==2.41.5
+    # via pydantic
 pyparsing==3.3.2
     # via matplotlib
 python-dateutil==2.9.0.post0
@@ -73,8 +93,22 @@ seaborn==0.13.2
     # via house-price-prediction (pyproject.toml)
 six==1.17.0
     # via python-dateutil
+starlette==0.50.0
+    # via fastapi
 threadpoolctl==3.6.0
     # via scikit-learn
+typing-extensions==4.15.0
+    # via
+    #   anyio
+    #   fastapi
+    #   pydantic
+    #   pydantic-core
+    #   starlette
+    #   typing-inspection
+typing-inspection==0.4.2
+    # via pydantic
+uvicorn==0.40.0
+    # via house-price-prediction (pyproject.toml)
 werkzeug==3.1.5
     # via flask
 xgboost==3.1.3
