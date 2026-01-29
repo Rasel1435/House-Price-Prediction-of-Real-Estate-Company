@@ -33,4 +33,3 @@ __pycache__/
 .git/
 *.ipynb
 data/*.csv
-artifacts/*.pkl
