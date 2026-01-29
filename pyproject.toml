@@ -22,7 +22,10 @@ dependencies = [
     "dill",
     "python-dotenv",
     "seaborn",
-    "matplotlib"
+    "matplotlib",
+    "fastapi",
+    "pydantic",
+    "uvicorn"
 ]
 
 classifiers = [
