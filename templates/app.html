@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +8,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
-
 <body>
     <div class="background-blur"></div>
 
@@ -17,78 +15,68 @@
         <a href="https://rasel1435.github.io/Sheikh-Rasel-Ahmed-Resume" target="_blank" class="nav-link">
             <i class="fas fa-user-circle"></i> Portfolio
         </a>
-        <a href="https://github.com/Rasel1435/House-Price-Prediction-of-Real-Estate-Company" target="_blank"
-            class="nav-link">
+        <a href="https://github.com/Rasel1435/House-Price-Prediction-of-Real-Estate-Company" target="_blank" class="nav-link">
             <i class="fab fa-github"></i> Source Code
         </a>
     </nav>
-
-    <div class="main-container">
-        <main class="glass-card">
-            <header class="hero-section">
-                <i class="fas fa-city brand-icon"></i>
-                <div class="logo-wrapper">
-                    <span class="logo-main">LUXESTATE</span>
-                    <span class="logo-divider">|</span>
-                    <span class="logo-sub">PREDICTOR</span>
-                </div>
-                <p class="subtitle">BENGALURU REAL ESTATE INTELLIGENCE</p>
-            </header>
-
-            <div class="form-content">
-                <div class="input-group full-width">
-                    <label><i class="fas fa-map-marker-alt"></i> Location</label>
-                    <select id="uiLocation">
-                        <option value="" disabled selected>Select neighborhood...</option>
-                    </select>
-                </div>
-
-                <div class="form-row">
-                    <div class="input-group">
-                        <label><i class="fas fa-vector-square"></i> Area (Sq. Ft.)</label>
-                        <input type="number" id="uiSqft" placeholder="e.g. 1200">
-                    </div>
-                    <div class="input-group">
-                        <label><i class="fas fa-bed"></i> BHK</label>
-                        <select id="uiBHK">
-                            <option value="1">1 BHK</option>
-                            <option value="2" selected>2 BHK</option>
-                            <option value="3">3 BHK</option>
-                            <option value="4">4 BHK</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="input-group full-width slider-box">
-                    <label><i class="fas fa-bath"></i> Bathrooms: <span id="bathCount">2</span></label>
-                    <input type="range" id="uiBath" min="1" max="5" value="2"
-                        oninput="document.getElementById('bathCount').innerText = this.value">
-                </div>
-
-                <button onclick="predictPrice()" class="predict-btn">
-                    <span>Calculate Market Value</span>
-                    <i class="fas fa-arrow-right"></i>
-                </button>
-            </div>
-
-            <div id="result-container" class="hidden">
-                <div class="result-divider"></div>
-                <p class="result-label">Estimated Market Value</p>
-                <div class="price-box">
-                    <h2 id="uiEstimatedPrice">₹ 0.00 Lakhs</h2>
-                    <button class="copy-btn" id="copyIcon">
-                        <i class="far fa-copy"></i>
-                    </button>
-                </div>
-            </div>
-        </main>
-
-        <footer class="dev-footer">
-            <p>Developed with <i class="fas fa-heart"></i> by <strong>Sheikh Rasel Ahmed</strong></p>
-        </footer>
+    
+    <main class="glass-card">
+        <header class="hero-section">
+    <div class="brand-logo">
+        <i class="fas fa-city"></i>
     </div>
+    <div class="logo-wrapper">
+        <span class="logo-main">LUXESTATE</span>
+        <span class="logo-divider">|</span>
+        <span class="logo-sub">PREDICTOR</span>
+    </div>
+    <p class="subtitle">BENGALURU REAL ESTATE INTELLIGENCE</p>
+</header>
+
+        <section class="form-grid">
+            <div class="input-group full-width">
+                <label><i class="fas fa-map-marker-alt"></i> Location</label>
+                <select id="uiLocation">
+                    <option value="" disabled selected>Select neighborhood...</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label><i class="fas fa-vector-square"></i> Area (Sq. Ft.)</label>
+                <input type="number" id="uiSqft" placeholder="e.g. 1200">
+            </div>
+
+            <div class="input-group">
+                <label><i class="fas fa-bed"></i> BHK</label>
+                <select id="uiBHK">
+                    <option value="1">1 BHK</option>
+                    <option value="2" selected>2 BHK</option>
+                    <option value="3">3 BHK</option>
+                    <option value="4">4 BHK</option>
+                </select>
+            </div>
+
+            <div class="input-group full-width">
+                <label><i class="fas fa-bath"></i> Bathrooms: <span id="bathCount">2</span></label>
+                <input type="range" id="uiBath" min="1" max="5" value="2" oninput="document.getElementById('bathCount').innerText = this.value">
+            </div>
+        </section>
+
+        <button onclick="predictPrice()" class="predict-btn">
+            <span>Calculate Market Value</span>
+            <i class="fas fa-arrow-right"></i>
+        </button>
+
+        <div id="result-container" class="hidden">
+            <p>Estimated Market Value</p>
+            <h2 id="uiEstimatedPrice">₹ 0.00 Lakhs</h2>
+        </div>
+    </main>
+
+    <footer class="dev-footer">
+        <p>Developed with <i class="fas fa-heart" style="color: #ff4d4d;"></i> by <strong>Sheikh Rasel Ahmed</strong></p>
+    </footer>
 
     <script src="/static/js/main.js"></script>
 </body>
-
 </html>
