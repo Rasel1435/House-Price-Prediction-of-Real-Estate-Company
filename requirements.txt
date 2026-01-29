@@ -108,6 +108,8 @@ typing-extensions==4.15.0
 typing-inspection==0.4.2
     # via pydantic
 uvicorn==0.40.0
+
+gunicorn==23.0.0
     # via house-price-prediction (pyproject.toml)
 werkzeug==3.1.5
     # via flask
