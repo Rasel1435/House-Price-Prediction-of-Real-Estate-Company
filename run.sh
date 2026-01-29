@@ -5,14 +5,14 @@ GREEN='\033[0;32m'
 BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
-echo -e "${BLUE}🚀 Initializing LuxEstate Predictor...${NC}"
+echo -e "${BLUE}Initializing LuxEstate Predictor...${NC}"
 
 # Activate Virtual Environment
 if [ -d "venv" ]; then
-    echo -e "${GREEN}✅ Activating Virtual Environment...${NC}"
+    echo -e "${GREEN}Activating Virtual Environment...${NC}"
     source venv/bin/activate
 else
-    echo -e "❌ Virtual environment 'venv' not found. Please create it first."
+    echo -e "Virtual environment 'venv' not found. Please create it first."
     exit 1
 fi
 
