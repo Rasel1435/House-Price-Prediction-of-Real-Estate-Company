@@ -25,3 +25,12 @@
 **/values.dev.yaml
 LICENSE
 README.md
+
+
+venv/
+.venv/
+__pycache__/
+.git/
+*.ipynb
+data/*.csv
+artifacts/*.pkl
