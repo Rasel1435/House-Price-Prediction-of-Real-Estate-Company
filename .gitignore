@@ -1,0 +1,22 @@
+# Environments
+venv/
+.env
+
+# Python internals
+__pycache__/
+*.pyc
+*.egg-info/
+
+# Project Specific
+data/
+
+
+# Notebooks (Optional: keep the notebook but ignore the checkpoints)
+.ipynb_checkpoints/
+
+# Ignore all VS Code settings...
+.vscode/*
+# ...Except for the ones that help others debug/work
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/tasks.json

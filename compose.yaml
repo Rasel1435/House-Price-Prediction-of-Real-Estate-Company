@@ -1,0 +1,17 @@
+services:
+  housepricepredictionofrealestatecompany:
+    image: housepricepredictionofrealestatecompany
+    container_name: luxestate_app
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      - PYTHONDONTWRITEBYTECODE=1
+      - PYTHONUNBUFFERED=1
+    # Use volumes for development so changes sync immediately
+    volumes:
+      - .:/app
+    # Ensure the container restarts if the system reboots
+    restart: unless-stopped
