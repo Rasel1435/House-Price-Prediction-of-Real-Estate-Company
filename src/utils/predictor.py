@@ -15,8 +15,16 @@ class HousePricePredictor:
     def __init__(self):
         self.model = None
         self.columns = None
-        self.model_path = os.path.join("artifacts", "model.pkl")
-        self.columns_path = os.path.join("artifacts", "columns.json")
+        # Get the directory of the current file (src/utils)
+        current_dir = os.path.dirname(os.path.abspath(__file__))
+        # Go up two levels to reach the root (/app)
+        project_root = os.path.dirname(os.path.dirname(current_dir))
+        
+        self.model_path = os.path.join(project_root, "artifacts", "model.pkl")
+        self.columns_path = os.path.join(project_root, "artifacts", "columns.json")
+        
+        # Debugging print to see exactly where it's looking in logs
+        print(f"DEBUG: Looking for model at {self.model_path}")
         self._load_artifacts()
 
     def _load_artifacts(self):
