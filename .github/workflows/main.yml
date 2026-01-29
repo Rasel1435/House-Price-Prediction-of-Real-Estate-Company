@@ -1,8 +1,8 @@
-name: CI/CD to Docker Hub
+name: CI/CD to Docker Hub and AWS
 
 on:
   push:
-    branches: [ "main" ] # Triggers automation every time you push to main
+    branches: [ "main" ]
 
 jobs:
   build-and-push:
@@ -23,3 +23,25 @@ jobs:
           context: .
           push: true
           tags: rasel143x/house-price-prediction:latest
+
+  # deploy-to-aws:
+  #   needs: build-and-push # Only runs if the build succeeds
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Configure AWS Credentials
+  #       uses: aws-actions/configure-aws-credentials@v4
+  #       with:
+  #         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+  #         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+  #         aws-region: us-east-1 # Change to your region
+
+  #     - name: Deploy to AWS App Runner
+  #       uses: awslabs/amazon-app-runner-deploy@main
+  #       with:
+  #         service: house-price-predictor
+  #         image: rasel143x/house-price-prediction:latest
+  #         access-role-arn: ${{ secrets.AWS_ROLE_ARN }}
+  #         region: us-east-1
+  #         cpu: 1
+  #         memory: 2
+  #         port: 8000

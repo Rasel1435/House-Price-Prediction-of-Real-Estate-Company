@@ -1,6 +1,8 @@
 FROM python:3-slim
 
 EXPOSE 8000
+# Hugging Face default port is 7860
+EXPOSE 7860
 
 # Keeps Python from generating .pyc files in the container
 ENV PYTHONDONTWRITEBYTECODE=1
@@ -21,4 +23,4 @@ COPY artifacts/ /app/artifacts/
 RUN adduser -u 5678 --disabled-password --gecos "" appuser && chown -R appuser /app
 USER appuser
 
-CMD ["gunicorn", "--bind", "0.0.0.0:8000", "-k", "uvicorn.workers.UvicornWorker", "app:app"]
+CMD ["gunicorn", "--bind", "0.0.0.0:7860", "-k", "uvicorn.workers.UvicornWorker", "app:app"]
