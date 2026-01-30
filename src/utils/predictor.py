@@ -20,7 +20,7 @@ class HousePricePredictor:
         # Go up two levels to reach the root (/app)
         project_root = os.path.dirname(os.path.dirname(current_dir))
         
-        self.model_path = os.path.join(project_root, "artifacts", "model.pkl")
+        self.model_path = os.path.join(project_root, "artifacts", "model_v2.pkl")
         self.columns_path = os.path.join(project_root, "artifacts", "columns.json")
         
         # Debugging print to see exactly where it's looking in logs

@@ -1,0 +1,78 @@
+09:08:00 | INFO     | ML_Pipeline | ==> Pipeline process has been started...
+09:08:00 | INFO     | DataIngestion | ==> Starting data ingestion process...
+09:08:00 | INFO     | DataIngestion | ==> Ingesting data from: data/Bengaluru_House_Data.csv
+09:08:00 | INFO     | DataIngestion | 
+==============================
+DATA INGESTION REPORT
+==============================
+Source: Bengaluru_House_Data.csv
+Rows: 13320 | Columns: 9
+File Integrity: PASS
+Columns Found: ['area_type', 'availability', 'location', 'size', 'society']... (Total 9)
+==============================
+09:08:00 | INFO     | DataIngestion | ==> Data ingestion process completed successfully.
+
+
+09:08:00 | INFO     | DataCleaning | ==> Starting production data cleaning process...
+09:08:00 | INFO     | DataCleaning | 
+==============================
+DATA CLEANING REPORT
+==============================
+Rows after cleaning: 11994 | Columns: 9
+Duplicates Removed: 529
+Remaining Nulls: area_type          0
+availability       0
+location           0
+society         4605
+total_sqft         0
+bath               0
+balcony          496
+price              0
+bhk                0
+dtype: int64
+Columns Present: ['area_type', 'availability', 'location', 'society', 'total_sqft', 'bath', 'balcony', 'price', 'bhk']
+==============================
+09:08:00 | INFO     | DataCleaning | ==> Data cleaning process completed successfully.
+
+
+09:08:00 | INFO     | FeatureSelection | Starting Feature Selection process...
+09:08:00 | INFO     | FeatureSelection | 
+==============================
+FEATURE SELECTION REPORT
+==============================
+Columns Kept: ['location', 'total_sqft', 'bath', 'price', 'bhk']
+Columns Dropped: ['area_type', 'availability', 'society', 'balcony']
+Final Shape: (11994, 5)
+==============================
+09:08:00 | INFO     | FeatureEngineering | ==> The Feature Engineering Process has been Started...
+09:08:00 | INFO     | FeatureEngineering | Location grouping complete. Unique locations remaining: 215
+09:08:01 | INFO     | FeatureEngineering | PPS Outliers removed. Shape: (9914, 6)
+09:08:01 | INFO     | FeatureEngineering | BHK Outliers removed. Shape: (6984, 6)
+09:08:01 | INFO     | FeatureEngineering | 
+==============================
+FEATURE ENGINEERING REPORT
+==============================
+Total Unique Locations after grouping: 215
+Final Rows for Training: 6984
+Final Features: ['location', 'total_sqft', 'bath', 'price', 'bhk']
+==============================
+09:08:01 | INFO     | ModelTrainer | ==> Model Training Process Started...
+09:08:09 | INFO     | ModelTrainer | 
+========================================
+MODEL TRAINING SUMMARY
+========================================
+Best Model Found: LINEAR_REGRESSION
+Best R2 Score:    0.8447
+Best Params:      {'copy_X': True}
+========================================
+Full Comparison:
+            model  best_score                                    best_params
+linear_regression    0.844663                               {'copy_X': True}
+            lasso    0.715427            {'alpha': 1, 'selection': 'cyclic'}
+    decision_tree    0.696008 {'criterion': 'poisson', 'splitter': 'random'}
+========================================
+09:08:09 | INFO     | ModelTrainer | Artifacts saved: artifacts/model.pkl & artifacts/columns.json
+09:08:09 | INFO     | ML_Pipeline | ==> Best Model Score from training: 0.844663126904534
+09:08:09 | INFO     | ML_Pipeline | ==> Pipeline process has been done successfully!
+09:19:14 | INFO     | Predictor | Loading artifacts for prediction...
+09:19:15 | INFO     | Predictor | Artifacts loaded successfully.
