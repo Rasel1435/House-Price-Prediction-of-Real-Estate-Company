@@ -9,7 +9,6 @@ pinned: false
 description: A data science project to build a real estate price prediction website using machine learning and web development technologies.
 ---
 
-
 [![CI/CD to Docker Hub](https://github.com/Rasel1435/House-Price-Prediction-of-Real-Estate-Company/actions/workflows/main.yml/badge.svg)](https://github.com/Rasel1435/House-Price-Prediction-of-Real-Estate-Company/actions)
 [![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue)](https://huggingface.co/spaces/rasel1435/house-price-prediction)
 
