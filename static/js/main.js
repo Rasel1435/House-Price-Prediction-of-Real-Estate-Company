@@ -1,16 +1,4 @@
 async function loadLocations() {
-<<<<<<< HEAD
-    const response = await fetch('/get_location_names');
-    const data = await response.json();
-    const dropdown = document.getElementById('uiLocation');
-    
-    data.locations.forEach(loc => {
-        let opt = document.createElement('option');
-        opt.value = loc;
-        opt.innerHTML = loc;
-        dropdown.appendChild(opt);
-    });
-=======
     try {
         const response = await fetch('/get_location_names');
         const data = await response.json();
@@ -26,7 +14,6 @@ async function loadLocations() {
     } catch (error) {
         console.error("Error loading locations:", error);
     }
->>>>>>> fresh-start
 }
 
 async function predictPrice() {
@@ -34,32 +21,6 @@ async function predictPrice() {
     const sqft = document.getElementById('uiSqft').value;
     const bhk = document.getElementById('uiBHK').value;
     const bath = document.getElementById('uiBath').value;
-<<<<<<< HEAD
-
-    if(!loc || !sqft) {
-        alert("Please fill in the location and area!");
-        return;
-    }
-
-    const response = await fetch('/predict', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({
-            location: loc,
-            total_sqft: parseFloat(sqft),
-            bath: parseInt(bath),
-            bhk: parseInt(bhk)
-        })
-    });
-
-    const data = await response.json();
-    const resultDiv = document.getElementById('result-container');
-    document.getElementById('uiEstimatedPrice').innerText = `₹ ${data.estimated_price} Lakhs`;
-    resultDiv.classList.remove('hidden');
-}
-
-window.onload = loadLocations;
-=======
     const btn = document.querySelector('.predict-btn');
     const resultDiv = document.getElementById('result-container');
 
@@ -124,4 +85,3 @@ function copyPrice() {
 window.onload = loadLocations;
 // Adding listener for copy icon if it exists
 document.getElementById('copyIcon')?.addEventListener('click', copyPrice);
->>>>>>> fresh-start
