@@ -11,5 +11,5 @@ jobs:
           fetch-depth: 0
       - name: Push to hub
         env:
-          HF_TOKEN: ${{ secrets.HF_TOKEN }}
-        run: git push --force https://rasel1435:$HF_TOKEN@huggingface.co/spaces/rasel1435/house-price-prediction main
+          HF_TOKEN: ${{ secrets.hugging_token }}
+        run: git push --force https://rasel1435:${{ secrets.hugging_token }}@huggingface.co/spaces/rasel1435/house-price-prediction main
