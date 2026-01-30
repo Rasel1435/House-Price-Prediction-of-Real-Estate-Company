@@ -7,7 +7,6 @@ colorTo: green
 sdk: docker
 app_port: 7860
 pinned: false
-description: A data science project to build a real estate price prediction website using machine learning and web development technologies.
 ---
 
 [![CI/CD to Docker Hub](https://github.com/Rasel1435/House-Price-Prediction-of-Real-Estate-Company/actions/workflows/main.yml/badge.svg)](https://github.com/Rasel1435/House-Price-Prediction-of-Real-Estate-Company/actions)
@@ -39,25 +38,25 @@ docker run -p 8000:7860 rasel143x/house-price-prediction:latest
 
 This project predicts home prices based on square footage, number of bedrooms (BHK), and location.
 
-- Model: Linear Regression trained on the Bangalore Home Prices dataset.
-- Workflow: Data cleaning, outlier removal (price per sqft & BHK), and hyperparameter tuning via GridSearchCV.
-- Pipeline: Automated ETL and model artifact generation.
+- **Model**: Linear Regression trained on the Bangalore Home Prices dataset.
+- **Workflow**: Data cleaning, outlier removal (price per sqft & BHK), and hyperparameter tuning via GridSearchCV.
+- **Pipeline**: Automated ETL and model artifact generation.
 
 ## 🏗️ DevOps & Automation
 
 This project is fully automated using CI/CD:
 
-- GitHub Actions: Automatically builds Docker images on every push.
-- Docker Hub: Fresh images are pushed to rasel143x/house-price-prediction.
-- Hugging Face Sync: Automated deployment to Spaces via Git integration.
+- **GitHub Actions**: Automatically builds Docker images on every push.
+- **Docker Hub**: Fresh images are pushed to rasel143x/house-price-prediction.
+- **Hugging Face Sync**: Automated deployment to Spaces via Git integration.
 
 ## 🛠️ Tech Stack
 
-- Language: Python 3.10
-- Libraries: Pandas, Numpy, Matplotlib, Scikit-Learn
-- Server: Flask + Gunicorn
-- Containerization: Docker
-- CI/CD: GitHub Actions
+- **Language**: Python 3.10
+- **Libraries**: Pandas, Numpy, Matplotlib, Scikit-Learn
+- **Server**: Flask + Gunicorn
+- **Containerization**: Docker
+- **CI/CD**: GitHub Actions
 
 ## ⚙️ Installation & Setup
 
@@ -79,15 +78,15 @@ pip install -r requirements.txt
 
 The model was optimized using ShuffleSplit cross-validation and GridSearchCV.
 
-- Primary Model: Linear Regression
-- Accuracy: ~85% R² score on test data.
+- **Primary Model**: Linear Regression
+- **Accuracy**: ~85% R² score on test data.
 
 ## 🤝 Contact
 
 Created by Sheikh Rasel Ahmed
 
-- LinkedIn: Sheikh Rasel Ahmed: [https://www.linkedin.com/in/shekhnirob1](https://www.linkedin.com/in/shekhnirob1)
-- Portfolio: Website: [https://rasel1435.github.io/Sheikh-Rasel-Ahmed-Resume](https://rasel1435.github.io/Sheikh-Rasel-Ahmed-Resume/)
+- LinkedIn: Sheikh Rasel Ahmed: [Linkedin](https://www.linkedin.com/in/shekhnirob1)
+- Portfolio: Website: [Rasel Ahmed Resume](https://rasel1435.github.io/Sheikh-Rasel-Ahmed-Resume/)
 
 ---
 
