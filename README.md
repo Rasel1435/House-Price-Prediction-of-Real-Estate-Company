@@ -4,6 +4,7 @@ emoji: 🏠
 colorFrom: blue
 colorTo: green
 sdk: docker
+app_port: 7860
 pinned: false
 description: A data science project to build a real estate price prediction website using machine learning and web development technologies.
 ---
