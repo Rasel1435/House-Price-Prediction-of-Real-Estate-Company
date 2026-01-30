@@ -1,3 +1,13 @@
+---
+title: House Price Prediction
+emoji: 🏠
+colorFrom: blue
+colorTo: green
+sdk: docker
+pinned: false
+description: A data science project to build a real estate price prediction website using machine learning and web development technologies.
+---
+
 ## Project Demo
 You can view the live application here: 
 [Check Live Prediction](https://house-price-predictor-wurq.onrender.com/)
