@@ -1,5 +1,6 @@
 ---
 title: House Price Prediction
+license: mit
 emoji: 🏠
 colorFrom: blue
 colorTo: green
