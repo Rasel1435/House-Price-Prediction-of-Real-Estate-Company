@@ -25,3 +25,4 @@ echo -e "${BLUE}🌐 Server starting at http://127.0.0.1:8000${NC}"
 echo -e "${BLUE}💡 Press CTRL+C to stop the server.${NC}"
 
 python app.py
+
